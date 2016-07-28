@@ -11,6 +11,8 @@
 |
 */
 
+/* Retourne la vue  accueil*/
 Route::get('/', function () {
-    return view('accueil');
+    return view('posts/index');
 });
+
