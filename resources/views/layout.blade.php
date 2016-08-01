@@ -7,6 +7,11 @@
 </head>
 <body>
 	<menu>
+		<img src="http://fakeimg.pl/100x100/" alt="logo">
+		<div><a href="#">lien</a></div>
+		<div><a href="#">lien</a></div>
+		<div><a href="#">lien</a></div>
+		<div><a href="#">lien</a></div>
 	</menu>
 		@yield('content')
 	<footer>
