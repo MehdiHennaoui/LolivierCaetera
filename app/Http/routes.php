@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::controller('user', 'UserController', [
+		'getIndex' => 'user.index',
+		'getShow' => 'user.show',
+		'getEdit' => 'user.edit',
+	]);
