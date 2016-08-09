@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
+use Auth;
+use Validator;
 
 class UserController extends Controller
 {
@@ -22,8 +24,6 @@ class UserController extends Controller
      */
     public function getShow($id)
     {
-        
-
         return view('users.show', ['user' => User::findOrFail($id)]);
     }
 
@@ -33,10 +33,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getEdit($id)
+    public function getEdit()
     {
-        $user = User::findOrFail($id);
-
+        $id = Auth::user()->id;
+        $user = User::findORFail($id);
         return view ('users.edit', ['user' => $user]);
     }
 
@@ -47,8 +47,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postEdit(Request $request, $id)
+    public function postEdit(Request $request)
     {
+         
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        $validator = Validator::make(
+        $request->all(),
+        ['first_name' => 'required',
+        'last_name' => 'required',
+        'username' => 'required',
+        'mail' => 'email|unique:user']);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->save();
+        return view('users.edit', ['user' => $user]);
         
     }
 

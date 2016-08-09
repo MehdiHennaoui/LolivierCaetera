@@ -24,4 +24,5 @@ Route::controller('user', 'UserController', [
 		'getIndex' => 'user.index',
 		'getShow' => 'user.show',
 		'getEdit' => 'user.edit',
+		'postEdit' => 'user.post',
 	]);
