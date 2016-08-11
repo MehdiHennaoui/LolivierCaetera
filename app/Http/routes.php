@@ -11,17 +11,18 @@
 |
 */
 
-/* Retourne la vue  accueil*/
+// Retourne la vue  accueil
 Route::get('/', function () {
     return view('posts/index');
 });
 
-
+// Retourne les vues liée à l'enregitrement 
 Route::auth();
 
+//retourne les vues et les fonctions liées au changement de données de l'utilisateur
 Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => 'auth'], function(){
 Route::controller('user', 'UserController', [
-		'middleware'=> 'auth',
 		'getIndex' => 'user.index',
 		'getShow' => 'user.show',
 		'getEdit' => 'user.edit',
@@ -29,3 +30,4 @@ Route::controller('user', 'UserController', [
 		'getPasswordReset' => 'user.password',
 		'postPasswordReset' => 'user.password',
 	]);
+});
