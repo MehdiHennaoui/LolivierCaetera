@@ -21,6 +21,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::controller('user', 'UserController', [
+		'middleware'=> 'auth',
 		'getIndex' => 'user.index',
 		'getShow' => 'user.show',
 		'getEdit' => 'user.edit',
