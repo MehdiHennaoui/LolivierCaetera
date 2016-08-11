@@ -11,14 +11,13 @@ use Hash;
 
 class UserController extends Controller
 {
-    
+    // returne la liste des utilisateurs
     public function getIndex(){
-        
         $users = User::All();
         return view('users.index', ['users' => $users]);
     }
     /**
-     * Display the specified resource.
+     * Retourne la liste de l'utilisateur sélectionné 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -29,7 +28,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * affiche le resultat des changement de données de l'utilisateur
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -42,11 +41,11 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Vérifie le formulaire de changement de données et si valide change les données de l'utilisateur.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response 
      */
     public function postEdit(Request $request)
     {
@@ -65,9 +64,20 @@ class UserController extends Controller
         $user->save();
         return view('users.show', ['user' => $user]);
     }
+    /*
+    *
+    * Retourne la vue du formulaire de changement de mot de passe
+    *
+    */
     public function getPasswordReset(){
         return view('users.passwordReset');
     }
+
+     /*
+    *
+    * Vérifie les données rentré par le formulaire de changement de mot de passe (ancien mot de passe, nouveau mot de passe, confirmation du nouveau mot de passe). Sauvegarde le nouveau mot de passe dans la base de données de l'utilisateur
+    *
+    */
     public function postPasswordReset(Request $request){
         
         $id = Auth::user()->id;
