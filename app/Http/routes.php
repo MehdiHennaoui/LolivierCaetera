@@ -25,4 +25,6 @@ Route::controller('user', 'UserController', [
 		'getShow' => 'user.show',
 		'getEdit' => 'user.edit',
 		'postEdit' => 'user.post',
+		'getPasswordReset' => 'user.password',
+		'postPasswordReset' => 'user.password',
 	]);

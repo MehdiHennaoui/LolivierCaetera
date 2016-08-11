@@ -15,7 +15,7 @@
 				<td>{{ $user->last_name }}</td>
 				<td>{{ $user->username }}</td>
 				<td>{{ $user->email }}</td>
-				<td><a href="{{ route('user.show', $user->id) }}">edité</a></td>
+				<td><a href="{{ route('user.edit', $user->id) }}">edité</a></td>
 			</tr>
 		@endforeach
 		</table>
