@@ -30,4 +30,13 @@ Route::controller('user', 'UserController', [
 		'getPasswordReset' => 'user.password',
 		'postPasswordReset' => 'user.password',
 	]);
+Route::controller('article', 'ArticleController', [
+		'index' => 'article.index',
+		'create' => 'article.create',
+		'store' => 'article.store',
+		'show' => 'article.show',
+		'edit' => 'article.edit',
+		'update' => 'article.update',
+		'destroy' => 'article.destroy',
+	])
 });
