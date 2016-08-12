@@ -21,6 +21,7 @@ Route::auth();
 
 //retourne les vues et les fonctions liées au changement de données de l'utilisateur
 Route::get('/home', 'HomeController@index');
+
 Route::group(['middleware' => 'auth'], function(){
 Route::controller('user', 'UserController', [
 		'getIndex' => 'user.index',
@@ -38,5 +39,5 @@ Route::controller('article', 'ArticleController', [
 		'edit' => 'article.edit',
 		'update' => 'article.update',
 		'destroy' => 'article.destroy',
-	])
+	]);
 });
