@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Article;
+use Validator;
+use Auth;
 
-use App\Http\Requests;
 
 class ArticleController extends Controller
 {
@@ -13,9 +16,9 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex()
     {
-        
+        return view('posts.index');
     }
 
     /**
@@ -23,9 +26,9 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,9 +37,24 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            ['title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
+            ]);
+        
+        $article = new Article;
+        $article->title = $request->title;
+        $article->subtitle = $request->subtitle;
+        $article->body = $request->body;
+
+        $article->save();
+        
+        return redirect(route('posts.show', $article->id));
+        
     }
 
     /**
@@ -45,9 +63,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($id)
     {
-        //
+        $article  = Article::findOrFail($id);
+
+        return view('posts.show')->with('article', $article);
     }
 
     /**
@@ -56,7 +76,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
     }
@@ -68,7 +88,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function getUpdate(Request $request, $id)
     {
         //
     }
@@ -79,7 +99,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
         //
     }

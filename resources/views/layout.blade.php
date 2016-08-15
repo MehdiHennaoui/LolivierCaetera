@@ -8,6 +8,7 @@
 <body>
 	<menu>
 		<img src="http://fakeimg.pl/100x100/" alt="logo">
+		<div><a href="/">L'olivier &amp; Caetera</a></div>
 		<div><a href="#">lien</a></div>
 		<div><a href="#">lien</a></div>
 		<div><a href="#">lien</a></div>
