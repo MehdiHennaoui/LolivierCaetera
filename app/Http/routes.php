@@ -13,7 +13,7 @@
 
 // Retourne la vue  accueil
 Route::get('/', function () {
-    return view('posts/index');
+    return view('welcome');
 });
 
 
