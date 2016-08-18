@@ -115,8 +115,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postDestroy($id)
+    public function postDestroy(Request $request,$id)
     {
-       
+      $article = Article::findOrFail($id);
+      $article->delete();
+      $request->session()->flash("msg", "Article suprimé");
+      return redirect('posts/index');
     }
 }

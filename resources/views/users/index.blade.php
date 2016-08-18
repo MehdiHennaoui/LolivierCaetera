@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 	<div class='container'>
+		@if(Session::has('msg'))
+		<h3>{{Session::get('msg')}}</h3>
+		@endif 
 		<table class="table">
 			<tr>
 				<th>Nom</th>
