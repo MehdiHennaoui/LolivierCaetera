@@ -38,7 +38,7 @@ Route::controller('posts', 'ArticleController', [
 		'postStore' => 'posts.store',
 		'getShow' => 'posts.show',
 		'getEdit' => 'posts.edit',
-		'getUpdate' => 'posts.update',
+		'postUpdate' => 'posts.update',
 		'getDestroy' => 'posts.destroy',
 	]);
 });

@@ -79,7 +79,8 @@ class ArticleController extends Controller
      */
     public function getEdit($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return view('posts.update', ['article' => $article]);
     }
 
     /**
@@ -89,9 +90,23 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getUpdate(Request $request, $id)
+    public function postUpdate(Request $request, $id)
     {
-        //
+       $article = Article::findOrfail($id);
+       $validator = Validator::make(
+            $request->all(),
+            ['title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
+            ]);
+        $article->title = $request->title;
+        $article->subtitle = $request->subtitle;
+        $article->body = $request->body;
+        $article->save();
+        $request->session()->flash("msg", "article mis à jour");
+
+        return view('posts.update', ['article' => $article]);
+
     }
 
     /**
@@ -100,8 +115,8 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getDestroy($id)
+    public function postDestroy($id)
     {
-        //
+       
     }
 }

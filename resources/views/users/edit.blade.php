@@ -10,7 +10,7 @@
 					<input type="text" name="first_name"  value="{{ $user->first_name }}" class="form-group" >
 				</div>
 					<label>Prenom</label>
-					<input type="text" name="last_name"  value="{{ $user->last_name}}" class="form-group">
+					<input type="text" name="last_name"  value="{{ $user->last_name }}" class="form-group">
 				<div>	
 					<label>Nom d'utilisateur</label>
 					<input type="text" name="username"  value="{{ $user->username }}" class="form-group">
