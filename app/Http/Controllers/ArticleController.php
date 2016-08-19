@@ -12,7 +12,7 @@ use Auth;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Fait la liste des articles dans le coté admin.
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +23,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Retourne la page posts/create qui est un formulaire pour la création d'article.
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,7 +33,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Vérifie les données envoyé par l'utilisateur. Si conforme enregistre dans la base de données un nouvel article.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -59,7 +59,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Affiche le formulaire d'édition d'un article sélectionné dans la liste des articles coté admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -72,7 +72,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Affiche le formulaire d'édition d'un article sélectionné dans la liste des articles coté admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -84,7 +84,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Vérifie les données envoyé par l'utilisateur du formulaire d'édition de l'article. Si conforme enregistre dans la base de données la modification de l'article.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -110,7 +110,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime un article de la base de données.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
