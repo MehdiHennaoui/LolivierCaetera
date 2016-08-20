@@ -160,7 +160,10 @@ return [
         * LaravelCollective Forms&HTML
         */
         Collective\Html\HtmlServiceProvider::class,
-            
+        /*
+        * Laravel Markdown
+        */
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,   
     ],
 
     /*
@@ -211,7 +214,10 @@ return [
         */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        /*
+        * Laravel Markdown
+        */
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
     ],
 
 ];
