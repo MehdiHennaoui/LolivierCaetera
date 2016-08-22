@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use Validator;
 use Auth;
+use DB;
 
 
 class ArticleController extends Controller
@@ -18,7 +19,7 @@ class ArticleController extends Controller
      */
     public function getIndex()
     {
-        $articles = Article::All();
+        $articles = DB::table('articles')->orderBy('created_at', 'desc')->get();;
         return view('posts.index', ['articles' => $articles]);
     }
 

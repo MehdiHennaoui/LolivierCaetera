@@ -12,9 +12,7 @@
 */
 
 // Retourne la vue  accueil
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'NewsController@GetNews', 'NewsController@translateMarkedown');
 
 
 // Retourne les vues liée à l'enregitrement 
