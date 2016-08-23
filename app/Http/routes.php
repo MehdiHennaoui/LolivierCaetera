@@ -12,7 +12,11 @@
 */
 
 // Retourne la vue  accueil
-Route::get('/', 'NewsController@GetNews', 'NewsController@translateMarkedown');
+Route::get('/', 'NewsController@GetNews');
+
+Route::get('/songs', function(){
+	return view('songs');
+});
 
 
 // Retourne les vues liée à l'enregitrement 

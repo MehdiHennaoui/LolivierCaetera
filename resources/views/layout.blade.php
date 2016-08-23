@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" ng-app="app">
 <head>
 	<meta charset="UTF-8">
 	<title>L'olivier & Caetera</title>
@@ -18,6 +18,11 @@
 	<footer>
 		footer
 	</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="{{ URL::asset('js/app.js')}}"></script>
+<script src="{{ URL::asset('js/controllers/mainController.js')}}"></script>
+<script src="{{ URL::asset('js/services/tracksFactory.js')}}"></script>
+<script src="{{ URL::asset('js/directives/song.js')}}"></script>
 </body>
 </html>
