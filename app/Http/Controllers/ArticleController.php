@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use GrahamCampbell\Markdown\Facades\Markdown;  
 use App\Article;
 use Validator;
 use Auth;
@@ -67,6 +68,7 @@ class ArticleController extends Controller
      */
     public function getShow($id)
     {
+              
         $article  = Article::findOrFail($id);
 
         return view('posts.show')->with('article', $article);
