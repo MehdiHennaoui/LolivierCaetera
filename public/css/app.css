@@ -1,0 +1,37 @@
+body {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Cantarell', sans-serif; }
+
+nav {
+  background-color: #383A3F;
+  border-bottom: 1px solid #e7e7e7; }
+  nav .link-nav {
+    text-decoration: none;
+    color: white; }
+  nav .logo {
+    height: 5em;
+    margin-bottom: -0.3em; }
+
+section .title-news {
+  margin-top: 2em;
+  padding-bottom: 1em; }
+
+section .link-article {
+  text-decoration: none;
+  color: black; }
+
+section .img-post {
+  margin-bottom: 0em; }
+
+.header-posts {
+  margin-bottom: 1em;
+  margin-top: 0em; }
+
+.img-article {
+  height: 26em;
+  margin-bottom: 1em; }
+
+/*# sourceMappingURL=app.css.map */

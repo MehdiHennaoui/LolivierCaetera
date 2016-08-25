@@ -13,7 +13,7 @@
 
 // Retourne la vue  accueil
 Route::get('/', 'NewsController@GetNews');
-
+Route::get('/article/{id}', ['uses' =>'NewsController@getShow', 'as' => 'article']);
 Route::get('/songs', function(){
 	return view('songs');
 });
