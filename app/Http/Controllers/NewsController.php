@@ -21,7 +21,7 @@ class NewsController extends Controller
 
     	return view('welcome', ['news' => $news]);
     }
-
+    // affiche le contenue de l'article sélectionnée
     public function getShow($id) {
     	$news = Article::findOrFail($id);
     	return view('article', ['news' => $news]);

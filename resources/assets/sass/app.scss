@@ -1,5 +1,5 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
- 
+
 body{
 	margin-left:0px;
 	margin-right:0px;
@@ -7,42 +7,41 @@ body{
 	margin-bottom:0px;
 	font-family: 'Cantarell', sans-serif;
 }
-
+// Navbar
 nav {
 	background-color: #383A3F;
 	border-bottom: 1px solid #e7e7e7;
-		.link-nav {
-			text-decoration: none;
-			color: white;
-		}
-		.logo {
-			height: 5em;
-			margin-bottom: -0.3em;
-		}
-		
+	.link-nav {
+		text-decoration: none;
+		color: white;
+	}
+	.logo {
+		height: 5em;
+		margin-bottom: -0.3em;
+	}
 }
 
 
+.title-news {
+	margin-top: 2em;
+	padding-bottom: 1em;
+}
 
 section {
 
-		.title-news {
-	margin-top: 2em;
-	padding-bottom: 1em;
+	.link-article {
+		text-decoration: none;
+		color: black;
 	}
-		.link-article {
-			text-decoration: none;
-			color: black;
-		}
-		.img-post {
-			margin-bottom: 0em;
-		}
+	.img-post {
+		margin-bottom: 0em;
+	}
 }
 
 .header-posts {
-			margin-bottom: 1em;
-			margin-top: 0em;
-		}
+	margin-bottom: 1em;
+	margin-top: 0em;
+}
 
 .img-article {
 	height: 26em;
@@ -50,6 +49,6 @@ section {
 }
 
 
-	
+
 
 
