@@ -11,14 +11,17 @@
 	<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-	<nav class="ui stackable massive inverted  menu">
+	<nav class="ui stackable menu">
 		<div class="item">
 			<a href="/">
 				<img src="{{ URL::asset('img/logo.jpg') }}" alt="logo" class="logo">
 			</a>
 		</div>
-		<a href="#" class="item link-nav">Tour</a>
-		<a href="#" class="item link-nav">Blog</a>
+		<div class="item">
+			<h1>L'olivier & Caetera</h1>
+		</div>
+		<a href="#" class="item">Tour</a>
+		<a href="#" class="item">Blog</a>
 	</nav>
 	@yield('content')
 	<footer>

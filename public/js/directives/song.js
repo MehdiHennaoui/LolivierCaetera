@@ -9,9 +9,16 @@ angular.module("app").directive("song", function(){
 			
 			elem.bind('click', function(){
 				SC.stream('/tracks/'+ scope.track.id).then(function(player){
-  player.play();
-});;
+					player.play();
+				});
+				scope.icon ="icon large play";
+				var suprIcon = $(".icon.large.play").removeClass("icon large play");
+				var icon = elem.find("i").addClass("icon large play");
 			});
+
+
+
+
 		}
 	}
 });

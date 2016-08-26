@@ -5,15 +5,16 @@ body {
   margin-bottom: 0px;
   font-family: 'Cantarell', sans-serif; }
 
-nav {
-  background-color: #383A3F;
-  border-bottom: 1px solid #e7e7e7; }
-  nav .link-nav {
-    text-decoration: none;
-    color: white; }
-  nav .logo {
-    height: 5em;
-    margin-bottom: -0.3em; }
+nav .link-nav {
+  text-decoration: none;
+  color: white; }
+
+nav .logo {
+  height: 5em;
+  margin-bottom: -0.3em; }
+
+.ui.menu .item {
+  color: white; }
 
 .title-news {
   margin-top: 2em;
@@ -33,5 +34,26 @@ section .img-post {
 .img-article {
   height: 26em;
   margin-bottom: 1em; }
+
+.title-song {
+  font-size: 1.3em; }
+
+.song {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.song:hover {
+  cursor: pointer; }
+
+.img-band {
+  max-width: 100%; }
+
+.ui.menu {
+  background-color: #383A3F;
+  height: 5em; }
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 8em; }
 
 /*# sourceMappingURL=app.css.map */

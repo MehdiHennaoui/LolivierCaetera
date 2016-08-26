@@ -4,6 +4,8 @@ angular.module("app").controller("MainCtrl", function($scope, tracksFactory){
 			$scope.tracks = results.data;
 
 		});
+
+		
 });
 
 
