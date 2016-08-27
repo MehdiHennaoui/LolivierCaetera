@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use GrahamCampbell\Markdown\Facades\Markdown;  
-use App\Article;
-use Validator;
-use Auth;
-use DB;
 
+use App\Http\Requests;
 
-class ArticleController extends Controller
+class ConcertController extends Controller
 {
     /**
      * Fait la liste des articles dans le coté admin.
@@ -20,8 +15,8 @@ class ArticleController extends Controller
      */
     public function getIndex()
     {
-        $articles = Article::orderBy('created_at', 'desc')->get();;
-        return view('posts.index', ['articles' => $articles]);
+        $concerts = Concert::all()->orderBy('created_at', 'desc')->get();;
+        return view('concerts.index', ['articles' => $concerts]);
     }
 
     /**
@@ -31,7 +26,7 @@ class ArticleController extends Controller
      */
     public function getCreate()
     {
-        return view('posts.create');
+        return view('concerts.create');
     }
 
     /**
@@ -49,14 +44,14 @@ class ArticleController extends Controller
             'body' => 'required',
             ]);
         
-        $article = new Article;
+        $article = new Concerts;
         $article->title = $request->title;
         $article->subtitle = $request->subtitle;
         $article->body = $request->body;
 
         $article->save();
         
-        return redirect(route('posts.show', $article->id));
+        return redirect(route('concerts.show', $Concerts->id));
         
     }
 
@@ -69,9 +64,9 @@ class ArticleController extends Controller
     public function getShow($id)
     {
               
-        $article  = Article::findOrFail($id);
+        $article  = Concert::findOrFail($id);
 
-        return view('posts.show')->with('article', $article);
+        return view('concerts.show')->with('concerts', $concerts);
     }
 
     /**
@@ -82,8 +77,8 @@ class ArticleController extends Controller
      */
     public function getEdit($id)
     {
-        $article = Article::findOrFail($id);
-        return view('posts.update', ['article' => $article]);
+        $article = Concert::findOrFail($id);
+        return view('concerts.update', ['concerts' => $concerts]);
     }
 
     /**
@@ -95,7 +90,7 @@ class ArticleController extends Controller
      */
     public function postUpdate(Request $request, $id)
     {
-       $article = Article::findOrfail($id);
+       $article = Concert::findOrfail($id);
        $validator = Validator::make(
             $request->all(),
             ['title' => 'required',
@@ -106,9 +101,9 @@ class ArticleController extends Controller
         $article->subtitle = $request->subtitle;
         $article->body = $request->body;
         $article->save();
-        $request->session()->flash("edit", "article mis à jour");
+        $request->session()->flash("msg", "article mis à jour");
 
-        return view('posts.update', ['article' => $article]);
+        return view('concerts.update', ['concert' => $concert]);
 
     }
 
@@ -120,9 +115,9 @@ class ArticleController extends Controller
      */
     public function postDestroy(Request $request,$id)
     {
-      $article = Article::findOrFail($id);
-      $article->delete();
-      $request->session()->flash("supr", "Article supprimé");
+      $concert = Concert::findOrFail($id);
+      $concert->delete();
+      $request->session()->flash("msg", "Article suprimé");
       return redirect('posts/index');
     }
 }

@@ -62,6 +62,7 @@ class UserController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         $user->save();
+        $request->session()->flash("edit", "edition réussis");
         return view('users.show', ['user' => $user]);
     }
     /*

@@ -1,29 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-@if(Session::has('msg'))
-		<h3>{{Session::get('msg')}}</h3>
-@endif 
+<div>
+@if(Session::has('supr'))
+		<h3 class="alert alert-warning">{{Session::get('supr')}}</h3>
+@endif
+</div>  
 <div class="container">
 	<table class="table">
 		<tr>
 				<th>Title</th>
 				<th>Subtitle</th>
 				<th>Contenu</th>
-				<th>Edité</th>
-				
+				<th>&nbsp;</th>
 		</tr>
 		@foreach ($articles as $article)
-			<tr>	
-				<td>{{ $article->title }}</td>
-				<td>{{ $article->subtitle }}</td>
-				<td>{{ str_limit($article->body) }}</td>
-				<td><a href="{{route('posts.edit', $article->id)}}">Editer</a></td>
-				<form action="{{ route('posts.destroy', $article->id) }}" method="POST">
-				{{csrf_field()}}
-				<td><button type="submit">supprimer</button></td>
-				</form> 
-			</tr>
+		<tr>	
+			<td>{{ $article->title }}</td>
+			<td>{{ $article->subtitle }}</td>
+			<td>{{ str_limit($article->body) }}</td>
+			<td><a href="{{route('posts.edit', $article->id)}}">Editer</a></td>
+		</tr>
 		@endforeach
 	</table>
 </div>
