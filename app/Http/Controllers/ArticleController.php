@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function getIndex()
     {
-        $articles = DB::table('articles')->orderBy('created_at', 'desc')->get();;
+        $articles = Article::take(8)->orderBy('created_at', 'desc')->get();;
         return view('posts.index', ['articles' => $articles]);
     }
 

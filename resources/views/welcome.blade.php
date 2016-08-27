@@ -2,7 +2,7 @@
 
 @section('content')
 <div ng-controller="MainCtrl">
-	
+	<!-- PLAYLIST -->
 	<section class="ui grid container stackable">
 		<aside class="six wide column">
 				<h1 class="ui center aligned header">Playlist</h1>
@@ -12,15 +12,14 @@
 				</div>
 			</div>
 		</aside>
+		<!--  BIOGRAPHY -->
 		<div class="ten wide column">
 		<article>
-			
 			<img src="{{ URL::asset('img/groupe.jpg')}}" alt="groupe" class="img-band">
-
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam error numquam, nulla expedita, doloribus optio temporibus ut deserunt excepturi nostrum? Distinctio accusantium, neque soluta tempore voluptates doloribus suscipit excepturi! Deserunt.</p>
-
 		</article>
-			<h1 class="ui center aligned header title-news">Actualités</h1>
+		<!-- ARTICLE -->
+		<h1 class="ui center aligned header title-news">Actualités</h1>
 		<div class="ui two stackable cards">	
 		@foreach ($news as $new)
 			<article class="ui link card segment fluid">
@@ -34,6 +33,7 @@
 		</div>
 	</section>
 </div>
+<!-- SCRIPT FOR SCRIPT -->
 <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 <script>
   SC.initialize({

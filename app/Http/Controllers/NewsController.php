@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function getNews(){
     	
-    	$news = DB::table('articles')->orderBy('created_at', 'desc')->get();
+    	$news = Article::take(8)->orderBy('created_at', 'desc')->get();
 
     	return view('welcome', ['news' => $news]);
     }
