@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-@if(Session::has('supr'))
-		<h3 class="alert alert-warning">{{Session::get('supr')}}</h3>
-@endif
-</div>  
+
 <div class="container">
+<div><a href="{{route('posts.create')}}" class="btn btn-primary">Nouvel article</a></div>
 	<table class="table">
 		<tr>
 				<th>Title</th>

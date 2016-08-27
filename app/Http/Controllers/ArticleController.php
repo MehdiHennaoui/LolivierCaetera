@@ -55,7 +55,7 @@ class ArticleController extends Controller
         $article->body = $request->body;
 
         $article->save();
-        
+        $request->session()->flash("edit", "Article ajouté");
         return redirect(route('posts.show', $article->id));
         
     }

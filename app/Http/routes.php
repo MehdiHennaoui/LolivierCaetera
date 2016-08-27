@@ -12,12 +12,13 @@
 */
 
 // Retourne la vue  accueil
-Route::get('/', 'NewsController@GetNews');
+Route::get('/', 'NewsController@getHome');
 Route::get('/article/{id}', ['uses' =>'NewsController@getShow', 'as' => 'article']);
-Route::get('/songs', function(){
-	return view('songs');
+Route::get('/tour', function(){
+	$concerts = App\Concert::where('date', '>=', Carbon\Carbon::now())->get();
+	return view('concerts', ['concerts'=>$concerts]);
 });
-
+Route::get('/articles', 'NewsController@getIndex');
 
 // Retourne les vues liée à l'enregitrement 
 Route::auth();
@@ -42,5 +43,14 @@ Route::controller('posts', 'ArticleController', [
 		'getEdit' => 'posts.edit',
 		'postUpdate' => 'posts.update',
 		'postDestroy' => 'posts.destroy',
+	]);
+Route::controller('concerts', 'ConcertController', [
+		'getIndex' => 'concert.index',
+		'getCreate' => 'concert.create',
+		'postCreate' => 'concert.store',
+		'getShow' => 'concert.show',
+		'getEdit' => 'concert.edit',
+		'postUpdate' => 'concert.update',
+		'postDestroy' => 'concert.destroy',
 	]);
 });

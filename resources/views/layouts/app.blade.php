@@ -42,32 +42,45 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ route('posts.create')}}">crée un article</a></li>
-                    <li><a href="{{ route('posts.index')}}">liste des articles</a></li>
+                    <li><a href="{{ route('posts.create')}}">Créer un article</a></li>
+                    <li><a href="{{ route('posts.index')}}">Articles</a></li>
+                    <li><a href="{{ route('concert.index')}}">Concerts</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Se connecter</a></li>
+                    <li><a href="{{ url('/login') }}">Se connecter</a></li>
                     @else
-                        <li><a href="{{ route('user.index')}}">parametres du compte</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-                            
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>se déconnecter</a></li>
-                            </ul>
-                        </li>
+                    <li><a href="{{ route('user.index')}}">parametres du compte</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>se déconnecter</a></li>
+                        </ul>
+                    </li>
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
-
+    
+    @if(Session::has('edit'))
+    <div class="alert alert-success">
+        <h3>{{Session::get('edit')}}</h3>
+    </div>  
+    @endif
+    
+    @if(Session::has('supr'))
+    <div class="alert alert-warning">
+        <h3 >{{Session::get('supr')}}</h3>
+    </div>  
+    @endif
+    
     @yield('content')
 
     <!-- JavaScripts -->

@@ -18,6 +18,18 @@
 			<img src="{{ URL::asset('img/groupe.jpg')}}" alt="groupe" class="img-band">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam error numquam, nulla expedita, doloribus optio temporibus ut deserunt excepturi nostrum? Distinctio accusantium, neque soluta tempore voluptates doloribus suscipit excepturi! Deserunt.</p>
 		</article>
+		<h3 class="ui center aligned header">Concerts à venir</h3>
+		<table class="ui very basic table">
+		<tbody>
+		@foreach ($concerts as $concert)
+		<tr>
+            <td>{{$concert->date->format('d/m')}} {{$concert->hour}}</td>
+            <td>{{$concert->city}}</td>
+            <td>{{$concert->place}}</td>
+		</tr>
+		@endforeach
+		</tbody>
+	</table>
 		<!-- ARTICLE -->
 		<h1 class="ui center aligned header title-news">Actualités</h1>
 		<div class="ui two stackable cards">	

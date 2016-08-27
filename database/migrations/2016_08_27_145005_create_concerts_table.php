@@ -16,7 +16,7 @@ class CreateConcertsTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->time('hour')->nullable();
-            $table->text('adress');
+            $table->text('adress')->nullable();
             $table->string('city');
             $table->string('place');
             $table->timestamps();

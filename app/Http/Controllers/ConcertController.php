@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Validator;
 use App\Http\Requests;
+use App\Concert;
 
 class ConcertController extends Controller
 {
@@ -15,8 +16,8 @@ class ConcertController extends Controller
      */
     public function getIndex()
     {
-        $concerts = Concert::all()->orderBy('created_at', 'desc')->get();;
-        return view('concerts.index', ['articles' => $concerts]);
+        $concerts = Concert::orderBy('created_at', 'desc')->get();;
+        return view('concerts.index', ['concerts' => $concerts]);
     }
 
     /**
@@ -35,23 +36,26 @@ class ConcertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postStore(Request $request)
+    public function postCreate(Request $request)
     {
         $validator = Validator::make(
             $request->all(),
-            ['title' => 'required',
-            'subtitle' => 'required',
-            'body' => 'required',
+            ['date' => 'required',
+            'city' => 'required',
+            'hour' => 'required',
+            'place' => 'required',
             ]);
         
-        $article = new Concerts;
-        $article->title = $request->title;
-        $article->subtitle = $request->subtitle;
-        $article->body = $request->body;
+        $concert = new Concert;
+        $concert->date = $request->date;
+        $concert->hour = $request->hour;
+        $concert->adress = $request->adress;
+        $concert->city = $request->city;
+        $concert->place = $request->place;
 
-        $article->save();
-        
-        return redirect(route('concerts.show', $Concerts->id));
+        $concert->save();
+        $request->session()->flash("msg", "concert créé");
+        return redirect(route('concert.index'));
         
     }
 
@@ -64,9 +68,9 @@ class ConcertController extends Controller
     public function getShow($id)
     {
               
-        $article  = Concert::findOrFail($id);
+        $concert  = Concert::findOrFail($id);
 
-        return view('concerts.show')->with('concerts', $concerts);
+        return view('concerts.show')->with('concert', $concert);
     }
 
     /**
@@ -77,8 +81,11 @@ class ConcertController extends Controller
      */
     public function getEdit($id)
     {
-        $article = Concert::findOrFail($id);
-        return view('concerts.update', ['concerts' => $concerts]);
+        $concert = Concert::findOrFail($id);
+
+
+
+        return view('concerts.update', ['concert' => $concert]);
     }
 
     /**
@@ -90,20 +97,23 @@ class ConcertController extends Controller
      */
     public function postUpdate(Request $request, $id)
     {
-       $article = Concert::findOrfail($id);
+       $concert = Concert::findOrfail($id);
        $validator = Validator::make(
             $request->all(),
             ['title' => 'required',
             'subtitle' => 'required',
             'body' => 'required',
             ]);
-        $article->title = $request->title;
-        $article->subtitle = $request->subtitle;
-        $article->body = $request->body;
-        $article->save();
-        $request->session()->flash("msg", "article mis à jour");
+        $concert->id = $request->id;
+        $concert->date = $request->date;
+        $concert->hour = $request->hour;
+        $concert->adress = $request->adress;
+        $concert->city = $request->city;
+        $concert->place = $request->place;
+        $concert->save();
+        $request->session()->flash("msg", "concert mis à jour");
 
-        return view('concerts.update', ['concert' => $concert]);
+        return redirect(route('concert.index'));
 
     }
 
@@ -117,7 +127,7 @@ class ConcertController extends Controller
     {
       $concert = Concert::findOrFail($id);
       $concert->delete();
-      $request->session()->flash("msg", "Article suprimé");
-      return redirect('posts/index');
+      $request->session()->flash("msg", "concert supprimé");
+      return redirect(route('concert.index'));
     }
 }

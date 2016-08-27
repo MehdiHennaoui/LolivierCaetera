@@ -11,21 +11,25 @@
 	<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-	<nav class="ui stackable menu">
+	<nav class="ui stackable menu inverted">
 		<div class="item">
 			<a href="/">
 				<img src="{{ URL::asset('img/logo.jpg') }}" alt="logo" class="logo">
 			</a>
 		</div>
-		<div class="item">
+		<a href="/" class="item">
 			<h1>L'olivier & Caetera</h1>
+		</a>
+
+		<div class="right item">
+			<a href="/tour" class="item">Tour</a>
+			<a href="/articles" class="item">Blog</a>
 		</div>
-		<a href="#" class="item">Tour</a>
-		<a href="#" class="item">Blog</a>
 	</nav>
 	@yield('content')
-	<footer>
-		footer
+	<footer class="center aligned">
+		<a href="mailto:lolivier@gmail.com">lolivier@gmail.com</a> -  <a href="https://fr-fr.facebook.com/lolivieretcaetera/"><i class="icon facebook"></i></a>
+
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	
 	<script src="../Semantic-UI-CSS-master/semantic.min.js"></script>
