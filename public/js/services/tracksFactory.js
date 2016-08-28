@@ -1,4 +1,6 @@
 angular.module("app").factory("tracksFactory", function($http, $q){
+	
+	// la promesse qui récupere le tabelau de données dans le souncloud de L'olivier retourne une erreur si elle ne trouve rien
 	function getTracks(){
 		var deferred = $q.defer();
 		return $http({
@@ -10,7 +12,7 @@ angular.module("app").factory("tracksFactory", function($http, $q){
 		});
 		
 	}
-	
+	// Rend la fonction "publique" 
 	return{
 		getTracks : getTracks
 	}
