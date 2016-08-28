@@ -10,24 +10,53 @@
 	<!-- Styles -->
 	<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-	<nav class="ui stackable menu inverted">
-		<div class="item">
-			<a href="/">
-				<img src="{{ URL::asset('img/logo.jpg') }}" alt="logo" class="logo">
-			</a>
-		</div>
-		<a href="/" class="item">
-			<h1>L'olivier & Caetera</h1>
-		</a>
 
-		<div class="right item">
-			<a href="/tour" class="item">Tour</a>
-			<a href="/articles" class="item">Blog</a>
+<body>
+	
+	<nav class="ui secondary menu stackable inverted grid">
+	
+		<div class="computer tablet only row">
+			
+			<div class="item only">
+
+				<img src="{{ URL::asset('img/logo.jpg') }}" alt="logo" class="logo">
+
+			</div>
+
+			<a href="/" class="item">
+				<h1>L'olivier & Caetera</h1>
+			</a>
+
+			<div class="right menu">
+				
+				<a href="/tour" class="item"><h3>Tour</h3></a>
+				
+				<a href="/articles" class="item"><h3>Blog</h3></a>
+			
+			</div>
+		
 		</div>
+
+		<div class="mobile only centered row">
+
+			<a href="/" class="item">
+				<h1>L'olivier & Caetera</h1>
+			</a>
+
+			<a href="/tour" class="item"><h3>Tour</h3></a>
+				
+			<a href="/articles" class="item"><h3>Blog</h3></a>
+			
+		</div>
+		
 	</nav>
+	
+
 	@yield('content')
+	
+
 	<footer class="ui container center aligned">
+		
 		<a href="mailto:lolivier@gmail.com">lolivier@gmail.com</a> -  <a href="https://fr-fr.facebook.com/lolivieretcaetera/"><i class="big icon facebook"></i></a>
 
 	</footer>

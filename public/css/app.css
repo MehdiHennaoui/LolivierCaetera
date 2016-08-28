@@ -5,17 +5,11 @@ body {
   margin-bottom: 0px;
   font-family: 'Cantarell', sans-serif; }
 
-.ui.inverted.menu {
-  background-color: #383A3F;
-  height: 5em; }
+.ui.secondary.inverted.menu, .ui.vertical.secondary.menu .item > .menu .item {
+  background-color: #383A3F; }
 
-nav .link-nav {
-  text-decoration: none;
-  color: white; }
-
-nav .logo {
-  height: 5em;
-  margin-bottom: -0.3em; }
+.ui.menu .item > img:not(.ui) {
+  width: 4.5em; }
 
 .ui.menu .item {
   color: white; }
@@ -60,7 +54,7 @@ h3.ui.header {
   font-size: 2.28rem; }
 
 footer {
-  margin-top: 1em;
+  margin-top: 3em;
   margin-bottom: 1em; }
 
 /*# sourceMappingURL=app.css.map */
