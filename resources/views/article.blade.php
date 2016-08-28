@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
 <div class="ui container">
 	<h1 class="ui center aligned huge header header-article">{!! $news->title !!}</h1>
 	<h3 class="ui center aligned disabled header header-article">{!! $news->subtitle !!}</h3>
@@ -9,5 +10,6 @@
 		{!! Markdown::convertToHtml($news->body) !!}
 	</div>
 </div>	
+
 </div>
 @endsection

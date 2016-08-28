@@ -13,13 +13,17 @@
 
 // Retourne la vue  accueil
 Route::get('/', 'NewsController@getHome');
-// Retourne la vue de l'article selectionner
+
+// Retourne la vue de l'article selectionné
 Route::get('/article/{id}', ['uses' =>'NewsController@getShow', 'as' => 'article']);
-// Retroune la liste des concerts futur
+
+// Retroune la liste des concerts futures
 Route::get('/tour', function(){
 	$concerts = App\Concert::where('date', '>=', Carbon\Carbon::now())->get();
 	return view('concerts', ['concerts'=>$concerts]);
 });
+
+// Retournes tous les articles 
 Route::get('/articles', 'NewsController@getIndex');
 
 // Retourne les vues liée à l'enregitrement 
