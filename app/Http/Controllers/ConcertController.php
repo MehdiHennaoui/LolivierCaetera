@@ -10,7 +10,7 @@ use App\Concert;
 class ConcertController extends Controller
 {
     /**
-     * Fait la liste des articles dans le coté admin.
+     * Fait la liste des concerts dans le coté admin.
      *
      * @return \Illuminate\Http\Response
      */
@@ -21,7 +21,7 @@ class ConcertController extends Controller
     }
 
     /**
-     * Retourne la page posts/create qui est un formulaire pour la création d'article.
+     * Retourne la page posts/create qui est un formulaire pour la création des concerts.
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class ConcertController extends Controller
     }
 
     /**
-     * Vérifie les données envoyé par l'utilisateur. Si conforme enregistre dans la base de données un nouvel article.
+     * Vérifie les données envoyé par l'utilisateur. Si conforme enregistre dans la base de données un nouveau concert.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -60,7 +60,7 @@ class ConcertController extends Controller
     }
 
     /**
-     * Affiche le formulaire d'édition d'un article sélectionné dans la liste des articles coté admin.
+     * Affiche le formulaire d'édition d'un concert sélectionné dans la liste des articles coté admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -74,7 +74,7 @@ class ConcertController extends Controller
     }
 
     /**
-     * Affiche le formulaire d'édition d'un article sélectionné dans la liste des articles coté admin.
+     * Affiche le formulaire d'édition d'un article sélectionné dans la liste des concerts coté admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -89,7 +89,7 @@ class ConcertController extends Controller
     }
 
     /**
-     * Vérifie les données envoyé par l'utilisateur du formulaire d'édition de l'article. Si conforme enregistre dans la base de données la modification de l'article.
+     * Vérifie les données envoyé par l'utilisateur du formulaire d'édition du concert. Si conforme enregistre dans la base de données la modification de l'article.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -118,7 +118,7 @@ class ConcertController extends Controller
     }
 
     /**
-     * Supprime un article de la base de données.
+     * Supprime un concert de la base de données.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

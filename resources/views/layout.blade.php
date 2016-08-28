@@ -27,8 +27,8 @@
 		</div>
 	</nav>
 	@yield('content')
-	<footer class="center aligned">
-		<a href="mailto:lolivier@gmail.com">lolivier@gmail.com</a> -  <a href="https://fr-fr.facebook.com/lolivieretcaetera/"><i class="icon facebook"></i></a>
+	<footer class="ui container center aligned">
+		<a href="mailto:lolivier@gmail.com">lolivier@gmail.com</a> -  <a href="https://fr-fr.facebook.com/lolivieretcaetera/"><i class="big icon facebook"></i></a>
 
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	

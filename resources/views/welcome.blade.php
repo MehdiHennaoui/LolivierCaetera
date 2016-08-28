@@ -3,6 +3,7 @@
 @section('content')
 <div ng-controller="MainCtrl">
 	<!-- PLAYLIST -->
+	
 	<section class="ui grid container stackable">
 		<aside class="six wide column">
 				<h1 class="ui center aligned header">Playlist</h1>
@@ -12,7 +13,9 @@
 				</div>
 			</div>
 		</aside>
+		
 		<!--  BIOGRAPHY -->
+		
 		<div class="ten wide column">
 		<article>
 			<img src="{{ URL::asset('img/groupe.jpg')}}" alt="groupe" class="img-band">
@@ -45,7 +48,9 @@
 		</div>
 	</section>
 </div>
-<!-- SCRIPT FOR SCRIPT -->
+
+<!-- SCRIPT-->
+
 <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 <script>
   SC.initialize({
