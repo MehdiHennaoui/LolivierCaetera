@@ -13,7 +13,9 @@
 
 // Retourne la vue  accueil
 Route::get('/', 'NewsController@getHome');
+// Retourne la vue de l'article selectionner
 Route::get('/article/{id}', ['uses' =>'NewsController@getShow', 'as' => 'article']);
+// Retroune la liste des concerts futur
 Route::get('/tour', function(){
 	$concerts = App\Concert::where('date', '>=', Carbon\Carbon::now())->get();
 	return view('concerts', ['concerts'=>$concerts]);
@@ -26,6 +28,7 @@ Route::auth();
 //retourne les vues et les fonctions liées au changement de données de l'utilisateur
 Route::get('/home', 'HomeController@index');
 
+// Vues et controllers liée à la page admin 
 Route::group(['middleware' => 'auth'], function(){
 Route::controller('user', 'UserController', [
 		'getIndex' => 'user.index',
